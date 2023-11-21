@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutOnlyLinks.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sidebar</title>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleSidebar()"><img id="#toggle-btn" height="25px" width="25px" src="/Svg/menu-alt-right.png"></img></button>
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar content goes here -->
+            <p>Sidebar Content</p>
+            <div class="sidebar-content">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <!-- Main content goes here -->
+            <p>Main Content</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100%;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: #333;
+        color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+        .sidebar p {
+            padding: 10px;
+        }
+
+    .content {
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    .sidebar.closed {
+        width: 0;
+    }
+
+    .toggle-btn {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+
+</style>
+
+
+<script>
+    function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var togglebtn = document.getElementById('toggle-btn');
+        sidebar.classList.toggle('closed');
+
+    }
+</script>
