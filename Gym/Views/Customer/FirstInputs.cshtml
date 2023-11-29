@@ -1,0 +1,187 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="container">
+    <div id="my-form1">
+        <form class="my-form" asp-controller="Customer" asp-action="FirstInputs" method="get">
+            <div class="sub-container">
+                <h1>Bilgilerini Tamamlayalım</h1>
+            </div>
+            <br />
+            <div class="sub-container">
+                <div class="double-input-inline">
+                    <label style="margin-bottom:-10px;"> - Dogum Tarihi - </label>
+                    <br />
+                    <input type="date" />
+                </div>
+            </div>
+            <br />
+            <div class="sub-container">
+                <div class="double-input-inline">
+                    <div style="margin-bottom:10px;" class="double-input">
+                        <label> - Cinsiyet - </label>
+                    </div>
+                    <div class="double-input">
+                        <div id="rd1c" class="gendercard" style="margin-right:20px;">
+                            <label style="color:white;" for="rd1">Erkek</label>
+                            <input id="rd1" type="radio" name="radioGroup" checked="checked"/>
+                        </div>
+                        <div id="rd2c" class="gendercard">
+                            <label style="color:white;" for="rd2">Kız</label>
+                            <input id="rd2" type="radio" name="radioGroup"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="sub-container">
+                <div class="double-input-inline">
+                    <label style="margin-bottom:-10px;">Boy (cm)</label>
+                    <br />
+                    <input type="tel" />
+                </div>
+                <div class="double-input-inline" style="margin-left: 50px;">
+                    <label style=" margin-bottom: -10px;">Kilo (kg)</label>
+                    <br />
+                    <input type="tel" />
+                </div>
+            </div>
+            <br />
+            <div class="sub-container">
+                <button id="onybutton" type="submit" value="Onayla">Onayla</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    #rd1:checked #rd1c {
+        background-color: #610703;
+    }
+
+    #rd2:checked #rd2c {
+        background-color: #610703;
+    }
+
+    input[type="radio"]{
+        //display:none;
+    }
+    .gendercard {
+        width: 120px;
+        height: 75px;
+        background-color: #b04b46;
+        border-radius: 5px;
+        position: relative;
+        display: flex;
+        border: 5px 5px #660d08;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+    #onybutton {
+        background-color: #b51007;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+        height: 40px;
+        width: 90px;
+        cursor: pointer;
+    }
+        #onybutton:hover {
+            background-color: #660d08;
+        }
+    .double-input {
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .double-input-inline{
+        position:relative;
+        display:inline-grid;
+        justify-content:center;
+        align-items:center;
+        align-content:center;
+    }
+    label {
+        font-weight:bold;
+    }
+    input[type="date"] {
+        font-family: 'Orbitron', sans-serif;
+        font-variant-numeric: 'Orbitron', sans-serif;
+        font-size: large;
+        border: 2px solid #e31207;
+        border-radius: 5px;
+    }
+    input[type="tel"] {
+        font-family: 'Orbitron', sans-serif;
+        font-variant-numeric: 'Orbitron', sans-serif;
+        font-size: large;
+        border: 2px solid #e31207;
+        border-radius: 5px;
+        width: 80px;
+        height: 50px;
+        text-align: center;
+        outline:none;
+        //-webkit-appearance: none;
+        //-moz-appearance: none;
+        //appearance: none;
+    }
+        input[type="tel"]:focus {
+            border-color: #660d08;
+        }
+
+        input[type="radio"] {
+            //display: none;
+        }
+    .radio-label {
+        position: relative;
+        color: #780206;
+        cursor: pointer;
+        display: inline-flex;
+        gas: 0.8em;
+        border: 3px solid #e31207;
+        padding 1em 2em;
+        border-radius: 0.5em;
+    }
+        .radio-label:before {
+            content: "";
+            height: 2em;
+            width: 2em;
+            border: 3px solid #e31207;
+            border-radius: 50%;
+        }
+    input[type="radio"]:checked + .radio-label:before {
+        height: 1em;
+        width: 1em;
+        border: 0.65em solid #ffffff;
+        background-color: #e31207;
+    }
+    input[type="radio"]:checked + .radio-label {
+        background-color: #e31207;
+        color: #ffffff;
+    }
+    .sub-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #my-form1 {
+        //margin-top: 100px;
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+        //background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        padding: 20px;
+        //box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        font-family: 'Orbitron', sans-serif;
+        background-color: #ffffff05;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+</style>

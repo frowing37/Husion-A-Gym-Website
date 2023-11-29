@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutOpening.cshtml";
+}
+
+<div class="login-div">
+    <div class="login">
+        <hr />
+        <h2 style="color: #a80309">Giriş Yap</h2>
+        <form id="login-form" method="post">
+            <div class="input-container">
+                <input type="text" id="login-mail" placeholder="Mail" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="login-password" placeholder="Şifre" required>
+            </div>
+            <br />
+            <div class="input-container">
+                <div class="left-i">
+                    <input type="checkbox" id="input-rememberme"/>
+                    <label style="font-weight:600;" for="input-rememberme" id="input-rememberme-label">Beni Hatırla</label>
+                </div>
+                <br />
+                <div class="right-i">
+                    <a><label style="font-weight:600;" id="input-rememberme-label">Şifremi Unuttum</label></a>
+                </div>
+                <br />
+            </div>
+            <button style="margin-bottom:8px;" type="submit" id="login-button">Giriş Yap</button>
+            <hr />
+        </form>
+        <form asp-controller="Home" asp-action="Register" method="get">
+            <label style="font-weight:600;">Hala HUSION'lı olma şerefine layık olamadın mı ?</label>
+            <button type="submit" id="goto-register">Aramıza Katıl</button>
+        </form>
+        <hr />
+    </div>
+</div>
+
+<style>
+    .login-div {
+        font-family:'Orbitron', sans-serif;
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+        background-color: #ffffff05;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .login, .register {
+        text-align: center;
+    }
+
+    input[type="text"], input[type="password"], input[type="tel"] {
+        width: 300px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #a80309;
+        background-color: #dbd8d5;
+        border-radius: 5px;
+        font-family: 'Orbitron', sans-serif;
+        color: #22201e;
+        font-size: medium;
+        outline: none;
+    }
+        input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+            border-color: #660d08;
+        }
+
+        #login-button {
+            background-color: #a80309;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 3.5px;
+            cursor: pointer;
+        }
+
+    #goto-register {
+        background-color: #a80309;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 3.5px;
+        cursor: pointer;
+    }
+
+    #login-button:hover, #goto-register:hover {
+        background-color: #780206;
+    }
+</style>

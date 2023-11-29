@@ -10,8 +10,18 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <Content Remove="wwwroot\Svg\" />
+    <Content Remove="wwwroot\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\Svg\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Antrenor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Admin\" />
+    <None Remove="Views\Customer\" />
+    <None Remove="Views\Antrenor\" />
   </ItemGroup>
 </Project>

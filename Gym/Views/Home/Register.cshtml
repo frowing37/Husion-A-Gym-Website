@@ -1,0 +1,140 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutOpening.cshtml";
+}
+
+<div class="login-div">
+    <div class="login">
+        <hr />
+        <h2 style="color: #a80309">HUSION'A KATIL</h2>
+        <form id="login-form" asp-controller="Home" asp-action="ConfirmMail" method="get">
+            <div class="input-container">
+                <input type="text" id="re-name" placeholder="Ad" required>
+            </div>
+            <div class="input-container">
+                <input type="text" id="re-lastname" placeholder="Soyad" required>
+            </div>
+            <div class="input-container">
+                <input type="tel" id="re-tel" placeholder="Telefon Numarası">
+            </div>
+            <div class="input-container">
+                <input type="email" id="re-mail" placeholder="Mail">
+            </div>
+            <div class="input-container">
+                <input type="password" id="re-password" placeholder="Şifre">
+            </div>
+            <button style="margin-bottom:8px;" type="submit" id="login-button">Kayıt Ol</button>
+            <hr />
+        </form>
+        <div class="input-container">
+            <a id="ahomeSvg" href="/Home/Login" onmousemove="changeImageSource()" onmouseout="restoreImageSource()">
+                <img id="ihomeSvg" src="/Svg/home.png" title="Giriş Ekranı" height="40px" width="40px" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .login-div {
+        font-family: 'Orbitron', sans-serif;
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+        background-color: #ffffff05;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .login, .register {
+        text-align: center;
+    }
+
+    input[type="text"], input[type="password"], input[type="tel"], input[type="date"], input[type="email"] {
+        width: 300px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #a80309;
+        background-color: #dbd8d5;
+        border-radius: 5px;
+        font-family: 'Orbitron', sans-serif;
+        color: #22201e;
+        font-size: medium;
+        outline:none;
+    }
+        input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus, input[type="date"]:focus, input[type="email"]:focus {
+            border-color: #660d08;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+    .gender-label {
+        position: relative;
+        color: #a80309;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 15px;
+        border: 2px solid #a80309;
+        border-radius: 3.5px;
+        padding: 7px 30px;
+        display:flex;
+        align-items:center;
+        cursor:pointer;
+    }
+        .gender-label:before {
+            content: "";
+            height: 20px;
+            width: 20px;
+            border: 3px solid #a80309;
+            border-radius: 50%;
+            margin-right: 20px;
+
+        }
+    input[type="radio"]:checked + .gender-label {
+        background-color:#a80309;
+        color: white;
+    }
+        input[type="radio"]:checked + .gender-label:before {
+            height: 16px;
+            width: 16px;
+            border: 10px solid white;
+            background-color: #a80309;
+        }
+
+        #login-button {
+            background-color: #a80309;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 3.5px;
+            cursor: pointer;
+        }
+
+    #goto-register {
+        background-color: #a80309;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 3.5px;
+        cursor: pointer;
+    }
+
+        #login-button:hover, #goto-register:hover {
+            background-color: #780206;
+        }
+</style>
+
+
+<script>
+    function changeImageSource() {
+    document.getElementById("ihomeSvg").src = "/Svg/home-red.png";
+  }
+
+  function restoreImageSource() {
+    document.getElementById("ihomeSvg").src = "/Svg/home.png";
+  }
+</script>
