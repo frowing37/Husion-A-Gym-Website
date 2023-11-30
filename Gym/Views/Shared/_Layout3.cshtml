@@ -12,6 +12,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="main-card">
@@ -40,7 +42,7 @@
                         <div class="chat-bar-input-block">
                             <div id="userInput">
                                 <input id="textInput" class="input-box" type="text" name="msg"
-                                       placeholder="Tap 'Enter' to send a message">
+                                       placeholder="Mesaj eklemek için tıklayın">
                                 <p></p>
                             </div>
 
@@ -84,7 +86,7 @@
         justify-content: center;
         align-items: center;
         display: flex;
-        height:auto;
+        min-height:200vh;
     }
 
     .top-bar {
@@ -108,14 +110,12 @@
         opacity: 0.9;
     }
 
-
-
     .chat-bar-collapsible {
     position: fixed;
     bottom: 0;
     right: 50px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
+    }
 
     .collapsible {
         background-color: #3d0101;
@@ -299,7 +299,7 @@
 
     // Gets the first message
     function firstBotMessage() {
-        let firstMessage = "How's it going?"
+        let firstMessage = "slm çukulatam futu at"
         document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
 
         let time = getTime();

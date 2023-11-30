@@ -24,8 +24,16 @@
                     <input type="text" placeholder="Soyad" />
                     <input type="text" placeholder="Mail" />
                     <input type="text" placeholder="Şifre" />
-                    <input type="tel" placeholder="Kilo" />
-                    <input type="tel" placeholder="Boy" />
+                    <div class="duble-input">
+                        <input type="tel" placeholder="Kilo" />
+                        <input style="margin-left:20px;" type="tel" placeholder="Boy" />
+                    </div>
+                    <br />
+                    <div class="duble-input">
+                        <input style="font-size:smaller;" type="tel" placeholder="Vücut Yağ Oranı" />
+                        <input style="font-size:smaller;margin-left:20px;" type="tel" placeholder="Kas Kütlesi" />
+                    </div>
+                    
                     <br />
                     <button id="btnr">Güncelle</button>
                 </div>
@@ -35,6 +43,24 @@
 </div>
 
 <style>
+    .duble-input {
+        position:relative;
+        display:inline-flex;
+        align-content:center;
+        align-items:center;
+    }
+        .duble-input input[type="tel"] {
+            width: 100px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #a80309;
+            background-color: #dbd8d5;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            color: #22201e;
+            font-size: medium;
+            outline: none;
+        }
     input[type="file"] {
         width: 150px;
         padding: 5px;
@@ -138,6 +164,7 @@
         display: flex;
         justify-content: space-around;
         width: 1000px;
+        margin-top:-850px;
         background-color: #910101;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(50px);

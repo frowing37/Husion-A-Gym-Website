@@ -15,6 +15,16 @@ namespace Gym.Controllers
         {
             return View();
         }
+
+        public IActionResult Customers()
+        {
+            return View();
+        }
+
+        public IActionResult Antrenors()
+        {
+            return View();
+        }
     }
 }
 
