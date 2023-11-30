@@ -14,22 +14,37 @@
         </header>
         <br />
         <div class="cards-main">
-            <div class="profile-card">
-                <img src="/Images/blankprofile.jpg" height="50" width="50"/>
-                <br />
-                <input type="file" />
-                <input type="text" placeholder="Ad" />
-                <input type="text" placeholder="Soyad" />
-                <input type="text" placeholder="Mail" />
-                <input type="text" placeholder="Şifre" />
-                <input type="tel" placeholder="Kilo" />
-                <input type="tel" placeholder="Boy" />
-            </div>
+            <form>
+                <div class="profile-card">
+                    <img style="margin-top:20px; border-radius:100px;" src="/Images/blankprofile.jpg" height="100" width="100" />
+                    <br />
+                    <input type="file" />
+                    <br />
+                    <input type="text" placeholder="Ad" />
+                    <input type="text" placeholder="Soyad" />
+                    <input type="text" placeholder="Mail" />
+                    <input type="text" placeholder="Şifre" />
+                    <input type="tel" placeholder="Kilo" />
+                    <input type="tel" placeholder="Boy" />
+                    <br />
+                    <button id="btnr">Güncelle</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <style>
+    input[type="file"] {
+        width: 150px;
+        padding: 5px;
+        margin: 10px 0;
+        background-color: #dbd8d5;
+        border-radius: 5px;
+        font-family: 'Orbitron', sans-serif;
+        color: #22201e;
+        font-size: medium;
+    }
     #btnr {
         background-color: #a80309;
         font-family: 'Orbitron', sans-serif;
@@ -38,6 +53,7 @@
         padding: 10px 20px;
         font-size: small;
         margin-left: 8px;
+        margin-bottom:10px;
         border-radius: 5px;
         cursor: pointer;
         text-decoration: none;
