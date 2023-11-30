@@ -1,0 +1,183 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="login-div">
+    <div class="login">
+        <header class="header">
+            <nav class="navbar">
+                <a href="/Customer/Exercises">Egzersiz Programı</a>
+                <a href="/Customer/Nutrition">Beslenme Programı</a>
+                <a href="/Customer/Statics">İstatistikler</a>
+                <a href="/Customer/Profile">Profil</a>
+            </nav>
+        </header>
+        <br />
+        <div class="cards-main">
+            <div class="exercises-card">
+                <h3 style="color:white;">Diyet Listesi</h3>
+                <hr />
+                <div class="list">
+                    <ul class="listul">
+                        <li>- Kereviz</li>
+                        <li>- Ayak</li>
+                        <li>- Çokomel</li>
+                    </ul>
+                </div>
+                <br />
+                <div class="exercises-result">
+                    <label style="color:white;font-size:smaller;">Hedeflenen Kalori Alımı: 2000 kCal</label>
+                    <a href="#" id="btnr">Diyet Besinleri Tüketildi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #btnr {
+        background-color: #a80309;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: small;
+        margin-left: 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        #btnr:hover {
+            background-color: #780206;
+        }
+
+    .exercises-result {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .list {
+        text-align: left;
+    }
+
+    .listul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .listul li {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+            .listul li :hover {
+                background-color: #2b2828;
+            }
+
+    .cards-main {
+        position: relative;
+        display: inline-flex;
+        align-content: center;
+        align-items: center;
+    }
+
+    .exercises-card {
+        width: 500px;
+        height: auto;
+        border-radius: 10px;
+        background-color: #1a1717;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+
+    .navbar a {
+        font-size: larger;
+        text-decoration: none;
+        color: white;
+        font-weight: 800;
+        margin-left: 40px;
+        padding: 10px 20px;
+    }
+
+        .navbar a:hover {
+            background-size: 100px;
+            background-color: #1a1717;
+            border-radius: 10px;
+        }
+
+    .header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1000px;
+        margin-top: -20px;
+        border-radius: 10px;
+        padding: 20px;
+        background: #5c100a;
+    }
+
+    .login-div {
+        font-family: 'Orbitron', sans-serif;
+        display: flex;
+        justify-content: space-around;
+        width: 1000px;
+        background-color: #910101;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(50px);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .login, .register {
+        text-align: center;
+    }
+
+    input[type="text"], input[type="password"], input[type="tel"] {
+        width: 300px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #a80309;
+        background-color: #dbd8d5;
+        border-radius: 5px;
+        font-family: 'Orbitron', sans-serif;
+        color: #22201e;
+        font-size: medium;
+        outline: none;
+    }
+
+        input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+            border-color: #660d08;
+        }
+
+    #login-button {
+        background-color: #a80309;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 3.5px;
+        cursor: pointer;
+    }
+
+    #goto-register {
+        background-color: #a80309;
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 3.5px;
+        cursor: pointer;
+    }
+
+        #login-button:hover, #goto-register:hover {
+            background-color: #780206;
+        }
+</style>

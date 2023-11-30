@@ -8,7 +8,22 @@ namespace Gym.Controllers
 {
     public class CustomerController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Exercises()
+        {
+            return View();
+        }
+
+        public IActionResult Nutrition()
+        {
+            return View();
+        }
+
+        public IActionResult Statics()
+        {
+            return View();
+        }
+
+        public IActionResult Profile()
         {
             return View();
         }
