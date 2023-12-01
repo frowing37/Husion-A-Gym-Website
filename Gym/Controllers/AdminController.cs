@@ -4,13 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Gym.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
@@ -22,6 +19,36 @@ namespace Gym.Controllers
         }
 
         public IActionResult Antrenors()
+        {
+            return View();
+        }
+
+        public IActionResult AntrenorsDetail()
+        {
+            return View();
+        }
+
+        public IActionResult CustomersDetail()
+        {
+            return View();
+        }
+
+        public IActionResult NewAntrenor()
+        {
+            return View();
+        }
+
+        public IActionResult NewCustomer()
+        {
+            return View();
+        }
+
+        public IActionResult UpdateAntrenor()
+        {
+            return View();
+        }
+
+        public IActionResult UpdateCustomer()
         {
             return View();
         }

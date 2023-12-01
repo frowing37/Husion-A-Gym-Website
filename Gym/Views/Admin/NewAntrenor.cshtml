@@ -13,38 +13,22 @@
         <br />
         <div class="cards-main">
             <div class="list-card">
-                <h2 style="color:white;">Antrenörler</h2>
-                <table class="tbl">
-                    <thead>
-                        <tr>
-                            <th>Adı Soyadı</th>
-                            <th>Güncelle</th>
-                            <th>Aktiflik</th>
-                            <th>Detay</th>
-                            <th>Sil</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="margin-bottom:10px;">
-                            <td>Kamuran Neferli</td>
-                            <td><a id="updatea" href="/Admin/UpdateAntrenor">Güncelle</a></td>
-                            <td><a id="activea">Aktif</a></td>
-                            <td><a id="detaila" href="/Admin/AntrenorsDetail">Detay</a></td>
-                            <td><a id="deletea">Sil</a></td>
-                        </tr>
-                        <tr>
-                            <td>Kamuran Neferli</td>
-                            <td><a id="updatea">Güncelle</a></td>
-                            <td><a id="activea">Aktif</a></td>
-                            <td><a id="detaila">Detay</a></td>
-                            <td><a id="deletea">Sil</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <br />
-                <div class="exercises-result">
-                    <a href="/Admin/NewAntrenor" id="btnr">Yeni Antrenör Oluştur</a>
-                </div>
+                <h2 style="color:white;">Yeni Antrenör</h2>
+                <form method="post">
+                    <img src="/Images/blankprofile.jpg" style="border-radius:90px;" height="90px" width="90px" />
+                    <br />
+                    <input type="file" />
+                    <br />
+                    <input type="text" placeholder="Ad" />
+                    <input type="text" placeholder="Soyad" />
+                    <input type="text" placeholder="Uzmanlık Alanı" />
+                    <input type="text" placeholder="Deneyimleri" />
+                    <input type="text" placeholder="Telefon Numarası" />
+                    <input type="email" placeholder="Mail" />
+                    <input type="text" placeholder="Şifre" />
+                    <br />
+                    <button id="btnr" type="submit">Kaydet</button>
+                </form>
             </div>
         </div>
     </div>
@@ -221,7 +205,7 @@
         text-align: center;
     }
 
-    input[type="text"], input[type="password"], input[type="tel"] {
+    input[type="text"], input[type="password"], input[type="tel"], input[type="email"] {
         width: 300px;
         padding: 10px;
         margin: 10px 0;
@@ -234,7 +218,7 @@
         outline: none;
     }
 
-        input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus {
+        input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus, input[type="email"]:focus {
             border-color: #660d08;
         }
 
