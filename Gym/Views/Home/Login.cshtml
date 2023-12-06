@@ -2,26 +2,28 @@
     Layout = "/Views/Shared/_LayoutOpening.cshtml";
 }
 
+@model LoginDto
+
 <div class="login-div">
     <div class="login">
         <hr />
         <h2 style="color: #a80309">Giriş Yap</h2>
         <form id="login-form" method="post">
             <div class="input-container">
-                <input type="text" id="login-mail" placeholder="Mail" required>
+                <input type="text" id="login-mail" asp-for="Mail" placeholder="Mail" required>
             </div>
             <div class="input-container">
-                <input type="password" id="login-password" placeholder="Şifre" required>
+                <input type="password" id="login-password" asp-for="Password" placeholder="Şifre" required>
             </div>
             <br />
             <div class="input-container">
                 <div class="left-i">
                     <input type="checkbox" id="input-rememberme"/>
-                    <label style="font-weight:600;" for="input-rememberme" id="input-rememberme-label">Beni Hatırla</label>
+                    <label style="font-weight:600;" for="input-rememberme" asp-for="RememberMe" id="input-rememberme-label">Beni Hatırla</label>
                 </div>
                 <br />
                 <div class="right-i">
-                    <a><label style="font-weight:600;" id="input-rememberme-label">Şifremi Unuttum</label></a>
+                    <a><label style="font-weight:600;" id="input-rememberme-label" href="/Home/ForgetMyPassword" >Şifremi Unuttum</label></a>
                 </div>
                 <br />
             </div>

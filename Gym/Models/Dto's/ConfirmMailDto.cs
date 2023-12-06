@@ -5,7 +5,7 @@ namespace Gym.Models.Dtos
 	{
 		public string Mail { get; set; }
 
-		public int Code { get; set; }
+		public string Code { get; set; }
 	}
 }
 

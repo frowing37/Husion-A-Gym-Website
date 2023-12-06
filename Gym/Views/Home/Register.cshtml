@@ -2,25 +2,27 @@
     Layout = "/Views/Shared/_LayoutOpening.cshtml";
 }
 
+@model RegisterDto
+
 <div class="login-div">
     <div class="login">
         <hr />
         <h2 style="color: #a80309">HUSION'A KATIL</h2>
-        <form id="login-form" asp-controller="Home" asp-action="ConfirmMail" method="get">
+        <form id="login-form" asp-controller="Home" asp-action="Register" method="post">
             <div class="input-container">
-                <input type="text" id="re-name" placeholder="Ad" required>
+                <input type="text" id="re-name" asp-for="Name" placeholder="Ad" required>
             </div>
             <div class="input-container">
-                <input type="text" id="re-lastname" placeholder="Soyad" required>
+                <input type="text" id="re-lastname" asp-for="Surname" placeholder="Soyad" required>
             </div>
             <div class="input-container">
-                <input type="tel" id="re-tel" placeholder="Telefon Numarası">
+                <input type="tel" id="re-tel" asp-for="PhoneNumber" placeholder="Telefon Numarası">
             </div>
             <div class="input-container">
-                <input type="email" id="re-mail" placeholder="Mail">
+                <input type="email" id="re-mail" asp-for="Mail" placeholder="Mail">
             </div>
             <div class="input-container">
-                <input type="password" id="re-password" placeholder="Şifre">
+                <input type="password" id="re-password" asp-for="Password" placeholder="Şifre">
             </div>
             <button style="margin-bottom:8px;" type="submit" id="login-button">Kayıt Ol</button>
             <hr />

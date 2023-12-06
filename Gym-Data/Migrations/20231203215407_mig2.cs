@@ -31,10 +31,10 @@ namespace Gym_Data.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SenderID = table.Column<int>(type: "int", nullable: false),
-                    ReceiverID = table.Column<int>(type: "int", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SendingDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    SenderID = table.Column<int>(type: "int", nullable: true),
+                    ReceiverID = table.Column<int>(type: "int", nullable: true),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SendingDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -61,15 +61,15 @@ namespace Gym_Data.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ListName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Work1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Work2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Work3 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Work4 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Work5 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProgramStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProgramFinishDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CaloriBurnedTarget = table.Column<double>(type: "float", nullable: false),
-                    TargetID = table.Column<int>(type: "int", nullable: false)
+                    Work1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Work2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Work3 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Work4 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Work5 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProgramStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ProgramFinishDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CaloriBurnedTarget = table.Column<double>(type: "float", nullable: true),
+                    TargetID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -89,13 +89,13 @@ namespace Gym_Data.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ListName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MorningMeal = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Lunch = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EveningMeal = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProgramStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProgramFinishDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Calori = table.Column<double>(type: "float", nullable: false),
-                    TargetID = table.Column<int>(type: "int", nullable: false)
+                    MorningMeal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Lunch = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EveningMeal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProgramStartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ProgramFinishDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Calori = table.Column<double>(type: "float", nullable: true),
+                    TargetID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

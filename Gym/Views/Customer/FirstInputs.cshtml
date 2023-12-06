@@ -2,18 +2,20 @@
     Layout = "/Views/Shared/_Layout2.cshtml";
 }
 
+@model FirstInputsDto
+
 <div class="container">
     <div id="my-form1">
-        <form class="my-form" asp-controller="Customer" asp-action="FirstInputs" method="get">
-            <div class="sub-container">
-                <h1>Bilgilerini Tamamlayalım</h1>
-            </div>
-            <br />
+        <div class="sub-container">
+            <h1>Bilgilerini Tamamlayalım</h1>
+        </div>
+        @using (Html.BeginForm("FirstInputs", "Customer", FormMethod.Post))
+        {
             <div class="sub-container">
                 <div class="double-input-inline">
                     <label style="margin-bottom:-10px;"> - Dogum Tarihi - </label>
                     <br />
-                    <input type="date" />
+                    @Html.TextBoxFor(m => m.BirthDay, new { @class = "form-control", placeholder = "Doğum Günü" })
                 </div>
             </div>
             <br />
@@ -23,14 +25,7 @@
                         <label> - Cinsiyet - </label>
                     </div>
                     <div class="double-input">
-                        <div id="rd1c" class="gendercard" style="margin-right:20px;">
-                            <label style="color:white;" for="rd1">Erkek</label>
-                            <input id="rd1" type="radio" name="radioGroup" checked="checked"/>
-                        </div>
-                        <div id="rd2c" class="gendercard">
-                            <label style="color:white;" for="rd2">Kız</label>
-                            <input id="rd2" type="radio" name="radioGroup"/>
-                        </div>
+                        @Html.TextBoxFor(m => m.Gender, new { @class = "form-control", placeholder = "Cinsiyet" })
                     </div>
                 </div>
             </div>
@@ -39,19 +34,19 @@
                 <div class="double-input-inline">
                     <label style="margin-bottom:-10px;">Boy (cm)</label>
                     <br />
-                    <input type="tel" />
+                    @Html.TextBoxFor(m => m.Height, new { @class = "form-control", placeholder = "Boy" })
                 </div>
                 <div class="double-input-inline" style="margin-left: 50px;">
                     <label style=" margin-bottom: -10px;">Kilo (kg)</label>
                     <br />
-                    <input type="tel" />
+                    @Html.TextBoxFor(m => m.Weight, new { @class = "form-control", placeholder = "Kilo" })
                 </div>
             </div>
             <br />
-            <div class="sub-container">
-                <button id="onybutton" type="submit" value="Onayla">Onayla</button>
-            </div>
-        </form>
+            @Html.DropDownListFor(m => m.TargetID, (List<SelectListItem>)ViewBag.Targets, new { @class = "form-control" })@Html.DropDownListFor(m => m.TargetID, (List<SelectListItem>)ViewBag.Targets, new { @class = "form-control" })
+
+    <button id="onybutton" type="submit" value="Onayla">Onayla</button>
+        }
     </div>
 </div>
 

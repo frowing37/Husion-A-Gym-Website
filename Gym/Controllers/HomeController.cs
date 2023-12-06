@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Gym_Entity.Concrete;
 using MailKit.Net.Smtp;
 using MimeKit;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 
 namespace Gym.Controllers;
@@ -31,13 +32,6 @@ public class HomeController : BaseController
     public async Task<IActionResult> Login(LoginDto loginDto)
     {
         var controlUser = await _userManager.FindByEmailAsync(loginDto.Mail);
-
-        if (controlUser == null)
-        {
-            ModelState.AddModelError("", "Böyle bir kullanıcı bulunamadı");
-
-            return View();
-        }
 
         var result = await _signInManager.PasswordSignInAsync(controlUser, loginDto.Password, loginDto.RememberMe, true);
 
@@ -135,7 +129,7 @@ public class HomeController : BaseController
 
                 client.Disconnect(true);
 
-                return RedirectToAction("ConfirmMail", "Home", new { mail = appUser.Email });
+                return RedirectToAction("ConfirmMail", "Home", new { Mail = appUser.Email });
             }
 
             else
@@ -163,7 +157,7 @@ public class HomeController : BaseController
     {
         var controlUser = await _userManager.FindByEmailAsync(confirmMailDto.Mail);
 
-        if (Convert.ToInt32(controlUser.ConfirmCod) == confirmMailDto.Code)
+        if (controlUser.ConfirmCod == confirmMailDto.Code)
         {
             controlUser.EmailConfirmed = true;
             await _userManager.UpdateAsync(controlUser);
@@ -177,7 +171,7 @@ public class HomeController : BaseController
             else
             {
 
-                return Json(new { redirectUrl = Url.Action("Exercises", "Customer") });
+                return Json(new { redirectUrl = Url.Action("FirstInputs", "Customer") });
             }
         }
 
@@ -185,6 +179,47 @@ public class HomeController : BaseController
         {
             return View(confirmMailDto.Mail);
         }
+    }
+
+    [HttpGet]
+    public IActionResult ForgetMyPassword()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ForgetMyPassword(ConfirmMailDto confirmMailDto)
+    {
+        var user = await _userManager.FindByEmailAsync(confirmMailDto.Mail);
+
+        Random rnd = new Random();
+        string code = rnd.Next(100000, 1000000).ToString();
+
+        MimeMessage mimeMessage = new MimeMessage();
+        MailboxAddress mailboxAddressFrom = new MailboxAddress("Husion Admin", "emrecan8mece@gmail.com");
+        MailboxAddress mailboxAddressTo = new MailboxAddress("User", user.Email);
+
+        mimeMessage.From.Add(mailboxAddressFrom);
+        mimeMessage.To.Add(mailboxAddressTo);
+
+        var bodyBuilder = new BodyBuilder();
+        bodyBuilder.TextBody = "Kayıt işlemini tamamlamak için gerekli kod : " + code;
+
+        mimeMessage.Body = bodyBuilder.ToMessageBody();
+        mimeMessage.Subject = "Husion Onay Kodu";
+
+        //TempData["Mail"] = registerDto.Mail;
+
+        SmtpClient client = new SmtpClient();
+
+        client.Connect("smtp.gmail.com", 587, false);
+
+        client.Authenticate("emrecan8mece@gmail.com", "esul jwmo ricm coqt");
+        client.Send(mimeMessage);
+
+        client.Disconnect(true);
+
+        return RedirectToAction("ChangePassword","Home", new { Code = code });
     }
 
     public IActionResult AdminMenu()

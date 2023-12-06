@@ -44,7 +44,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Antrenor}/{action=ExerciseLists}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 //Identity Rollerinin eklenmesi
 using (var scope = app.Services.CreateScope())
