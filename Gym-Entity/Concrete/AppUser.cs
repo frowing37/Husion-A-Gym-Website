@@ -7,7 +7,7 @@ namespace Gym_Entity.Concrete
 	{
         public string Name { get; set; }
 
-        public string SecondName { get; set; }
+        public string? SecondName { get; set; }
 
         public string Surname { get; set; }
 
@@ -19,21 +19,21 @@ namespace Gym_Entity.Concrete
 
         public string ConfirmCod { get; set; }
 
-        public string Gender { get; set; }
+        public string? Gender { get; set; }
         
-        public double Height { get; set; }
+        public double? Height { get; set; }
 
-        public double Weight { get; set; }
+        public double? Weight { get; set; }
 
-        public double MussleWeight { get; set; }
+        public double? MussleWeight { get; set; }
 
-        public string Experience { get; set; }
+        public string? Experience { get; set; }
 
-        public double BMI { get; set; }
+        public double? BMI { get; set; }
 
         public bool Active { get; set; }
 
-        public int MaxAdvisor { get; set; }
+        public int? MaxAdvisor { get; set; }
     }
 }
 

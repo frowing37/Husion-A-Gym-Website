@@ -39,11 +39,17 @@ public class HomeController : BaseController
         {
             if (await _userManager.IsInRoleAsync(controlUser, "Admin"))
             {
-                return RedirectToAction("Posts", "Admin");
+                return RedirectToAction("Antrenors", "Admin");
             }
+
+            else if(await _userManager.IsInRoleAsync(controlUser, "Antrenor"))
+            {
+                return RedirectToAction("CustomersList","Antrenor");
+            }
+
             else
             {
-                return RedirectToAction("Index", "Post");
+                return RedirectToAction("Exercises", "Customer");
             }
         }
 
@@ -195,6 +201,9 @@ public class HomeController : BaseController
         Random rnd = new Random();
         string code = rnd.Next(100000, 1000000).ToString();
 
+        user.ConfirmCod = code;
+        await _userManager.UpdateAsync(user);
+
         MimeMessage mimeMessage = new MimeMessage();
         MailboxAddress mailboxAddressFrom = new MailboxAddress("Husion Admin", "emrecan8mece@gmail.com");
         MailboxAddress mailboxAddressTo = new MailboxAddress("User", user.Email);
@@ -208,7 +217,7 @@ public class HomeController : BaseController
         mimeMessage.Body = bodyBuilder.ToMessageBody();
         mimeMessage.Subject = "Husion Onay Kodu";
 
-        //TempData["Mail"] = registerDto.Mail;
+        TempData["Mail"] = user.Mail;
 
         SmtpClient client = new SmtpClient();
 
@@ -219,7 +228,35 @@ public class HomeController : BaseController
 
         client.Disconnect(true);
 
-        return RedirectToAction("ChangePassword","Home", new { Code = code });
+        return RedirectToAction("ChangePassword","Home");
+    }
+
+    [HttpGet]
+    public IActionResult ChangePassword()
+    {
+        var value = TempData["Mail"];
+
+        TempData["Mail2"] = value;
+
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword(ConfirmMailDto confirmMailDto)
+    {
+        confirmMailDto.Mail = TempData["Mail2"].ToString();
+
+        var user = await _userManager.FindByEmailAsync(confirmMailDto.Mail);
+
+        if(user.ConfirmCod == confirmMailDto.Code)
+        {
+            user.Password = confirmMailDto.NewPassword;
+            await _userManager.UpdateAsync(user);
+
+            return RedirectToAction("Login", "Home");
+        }
+
+        return View();
     }
 
     public IActionResult AdminMenu()

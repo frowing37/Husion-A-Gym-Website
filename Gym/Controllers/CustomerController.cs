@@ -11,15 +11,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace Gym.Controllers
 {
     public class CustomerController : BaseController
-    {
-        public TargetManager _targetManager;
+    {public TargetManager _targetManager;
 
         public CustomerController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
-            RoleManager<AppRole> roleManager,
-            TargetManager targetManager) : base(userManager, signInManager, roleManager)
+            RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager)
         {
-            _targetManager = targetManager;
         }
         
 
