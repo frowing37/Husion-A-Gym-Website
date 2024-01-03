@@ -8,12 +8,7 @@ namespace Gym.Controllers
 {
     public class AntrenorController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult CustomerDetails()
+        public IActionResult CustomersDetail()
         {
             return View();
         }
@@ -38,7 +33,7 @@ namespace Gym.Controllers
             return View();
         }
 
-        public IActionResult UpdateExerciseList()
+        /*public IActionResult UpdateExerciseList()
         {
             return View();
         }
@@ -46,7 +41,7 @@ namespace Gym.Controllers
         public IActionResult ExerciseListDetail()
         {
             return View();
-        }
+        }*/
     }
 }
 
